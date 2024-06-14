@@ -22,6 +22,7 @@ class TeamFactory extends Factory
     {
         return [
             'name' => $this->faker->company,
+            'championship_id' => 1
         ];
     }
 }

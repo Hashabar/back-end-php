@@ -9,13 +9,16 @@ class Team extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-    ];
-
     protected $casts = [
         'name' => 'string',
     ];
+
+    protected $fillable = ['name', 'championship_id'];
+
+    public function championship()
+    {
+        return $this->belongsTo(Championship::class);
+    }
 
     public function scopeUniqueName($query)
     {

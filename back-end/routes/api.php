@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ChampionshipController;
 use App\Http\Controllers\TeamController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// desativado middleware por nao estar gerando passport
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
 
-Route::post('teams', [TeamController::class, 'store']);
 Route::post('login', [LoginController::class, 'login']);
+Route::post('teams', [TeamController::class, 'store']);
 Route::get('teams', [TeamController::class, 'index']);
+Route::get('/championships/{id}/teams', [ChampionshipController::class, 'getTeamsByChampionship']);
+Route::get('/championships', [ChampionshipController::class, 'index']);
+Route::get('/championships/matches', [ChampionshipController::class, 'getChampionshipsWithMatches']);
+Route::post('/championships', [ChampionshipController::class, 'create']);
+Route::post('/championships/processar', [ChampionshipController::class, 'processar']);
