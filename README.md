@@ -1,0 +1,6 @@
+-installar as dependencias do projeto usando composer (composer install)  
+-utilizei o banco PostgreSQL (precisa setar os dados de banco no .env)  
+-utilizar a criacao das tabelas de migration ja setado (php artisan migrate)  
+-utilizar os dados de seed criado para a aplicacao (php artisan db:seed)  
+(usuario seed: 12345@teste.com senha:password)  
+(login com retorno mockado/fixo para a aplicação )  
